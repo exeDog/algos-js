@@ -15,6 +15,26 @@ function sameInArray(arr1,arr2){
 }
 
 
-console.log(diffInArray([1,5,3],[2,5,3,9]));
-console.log(sameInArray([1,5,3],[2,5,3,9]));
+function way3(str1,str2){
+    const concatStr = [...str1.split(' '),...(str2.split(' '))];
+    const map = {};
+    concatStr.forEach(char =>{
+       if(!map.hasOwnProperty(char)){
+           map[char] = 1;
+       }
+       else{
+           map[char] = map[char] + 1;
+       }
+    });
+
+    console.log(map);
+
+    return Object.keys(map).filter(char=> map[char] > 1);
+}
+
+
+// console.log(diffInArray([1,5,3],[2,5,3,9]));
+// console.log(sameInArray([1,5,3],[2,5,3,9]));
+// console.log(way3('priyank','rege'));
+console.log(way3('priyank rege','priyank coolcat'));
 
